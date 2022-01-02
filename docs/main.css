@@ -1,0 +1,95 @@
+body {
+	font-family: sans-serif;
+}
+
+#info {
+	display:flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+	column-gap: 10px;
+}
+
+#board {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+
+#bank > div {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+
+@media only screen and (max-width: 600px) {
+	button {
+		height: 12vw;
+		width: 9vw;
+		font-size: 20px;
+	}
+}
+
+button {
+	height: 50px;
+	width: 30px;
+	font-size: 20px;
+}
+
+#edit > button {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 175px;
+}
+
+.row {
+	flex: 1 100%;
+	display: flex;
+	justify-content: center;
+}
+
+.row > div {
+	width: 70px;
+	height: 70px;
+	margin: 0.5vw;
+	border-radius: 50%;
+	display: flex;
+	align-items: center;
+    justify-content: center;
+	line-height: 75px;
+	font-size: 30px;
+}
+
+.unknown {
+	background-color: #f1f1f1;
+}
+
+.filled {
+	background-color: #f1f1f1;
+	animation-duration: 0.2s;
+	animation-name: bounce;
+}
+
+.none {
+	background-color: #d5193b; /* red */
+}
+
+.correct {
+	background-color: #71ad4d; /* green */
+	animation-duration: 0.2s;
+	animation-name: scale;
+}
+@keyframes bounce {
+   0% {transform: translateY(0);} 
+   10% {transform: translateY(-15px);} 
+}
+@keyframes scale {
+   0% {transform: scale(1);} 
+   50% {transform: scale(1.1);} 
+   100% {transform: scale(1);} 
+}  
+
+.in {
+	background-color: #fbc847; /* yellow */
+}

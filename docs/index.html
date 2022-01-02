@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <link rel="icon" type="image/x-icon" href="icons/favicon.ico">
+      <script langauage="javascript" type="module" src="main.js" defer></script>
+	  <script langauage="javascript" type="module" src="wordlist.js" defer></script>
+	  <link rel="stylesheet" type="text/css" href="main.css">
+	  <meta name="viewport" content="width=device-width initial-scale=1, maximum-scale=5.0, minimum-scale=0.7">
+   </head>
+   <body>
+	  <div id="info"> 
+	  <h1>Letter Lights</h1>
+	  <p>a fun little word game based on <a href="https://powerlanguage.co.uk/wordle/">wordle.</a>
+	  <br>made by yacoub kahkajian with vanilla js.
+	  </p>
+	  </div>
+      <div id="board" rows=5>
+		<div class="row" id="row0">
+			<div class="unknown 0">/</div>
+			<div class="unknown 1">/</div>
+			<div class="unknown 2">/</div>  
+			<div class="unknown 3">/</div>
+			<div class="unknown 4">/</div>
+		</div>
+	  </div>
+	  <div id="bank">
+		<div id="topRow">
+			<button id="q" class="unknown" onclick="clickButton(this.id)">q</button>
+			<button id="w" class="unknown" onclick="clickButton(this.id)">w</button>
+			<button id="e" class="unknown" onclick="clickButton(this.id)">e</button>
+			<button id="r" class="unknown" onclick="clickButton(this.id)">r</button>
+			<button id="t" class="unknown" onclick="clickButton(this.id)">t</button>
+			<button id="y" class="unknown" onclick="clickButton(this.id)">y</button>
+			<button id="u" class="unknown" onclick="clickButton(this.id)">u</button>
+			<button id="i" class="unknown" onclick="clickButton(this.id)">i</button>
+			<button id="o" class="unknown" onclick="clickButton(this.id)">o</button>
+			<button id="p" class="unknown" onclick="clickButton(this.id)">p</button>
+		</div>
+		<div id="midRow">
+			<button id="a" class="unknown" onclick="clickButton(this.id)">a</button>
+			<button id="s" class="unknown" onclick="clickButton(this.id)">s</button>
+			<button id="d" class="unknown" onclick="clickButton(this.id)">d</button>
+			<button id="f" class="unknown" onclick="clickButton(this.id)">f</button>
+			<button id="g" class="unknown" onclick="clickButton(this.id)">g</button>
+			<button id="h" class="unknown" onclick="clickButton(this.id)">h</button>
+			<button id="j" class="unknown" onclick="clickButton(this.id)">j</button>
+			<button id="k" class="unknown" onclick="clickButton(this.id)">k</button>
+			<button id="l" class="unknown" onclick="clickButton(this.id)">l</button>
+		</div>
+		<div id="endRow">
+			<button id="z" class="unknown" onclick="clickButton(this.id)">z</button>
+			<button id="x" class="unknown" onclick="clickButton(this.id)">x</button>
+			<button id="c" class="unknown" onclick="clickButton(this.id)">c</button>
+			<button id="v" class="unknown" onclick="clickButton(this.id)">v</button>
+			<button id="b" class="unknown" onclick="clickButton(this.id)">b</button>
+			<button id="n" class="unknown" onclick="clickButton(this.id)">n</button>
+			<button id="m" class="unknown" onclick="clickButton(this.id)">m</button>
+		</div>
+		<div id="edit">
+			<button id="Enter" class="unknown" onclick="clickButton(this.id)">Enter</button>
+			<button id="Backspace" class="unknown" onclick="clickButton(this.id)">Backspace</button>
+		</div>
+	  </div>
+   </body>
+</html>
