@@ -40,6 +40,7 @@ function clickButton(clickChar) {
 			}
 			else {
 				row.getElementsByClassName(i)[0].classList.replace("filled", "none");
+				document.getElementById(currentWord.slice(i, i+1)).className = "none";
 			}
 		}
 		if (correctChar == 5) {
