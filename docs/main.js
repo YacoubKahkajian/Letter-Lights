@@ -55,7 +55,7 @@ function clickButton(clickChar) {
 			}
 		}
 	}
-	else {
+	else if (clickButton != "Enter"){
 		row.getElementsByClassName(c)[0].innerHTML = clickChar.toUpperCase();
 		row.getElementsByClassName(c)[0].classList.replace("unknown", "filled");
 		currentWord += clickButton;
