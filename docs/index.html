@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html>
    <head>
-          <link rel="icon" type="image/x-icon" href="icons/favicon.ico">
-          <script langauage="javascript" type="module" src="main.js" defer></script>
+      <link rel="icon" type="image/x-icon" href="icons/favicon.ico">
+      <script langauage="javascript" type="module" src="main.js" defer></script>
 	  <script langauage="javascript" type="module" src="wordlist.js" defer></script>
 	  <link rel="stylesheet" type="text/css" href="main.css">
 	  <meta name="viewport" content="width=device-width initial-scale=1, maximum-scale=5.0, minimum-scale=0.7">
 	  <meta charset="utf-8">
+	  <meta name="author" content="Yacoub Kahkajian">
+	  <meta name="description" content="A fun little word game based on Wordle. Infinitely replayable with custom words.">
+
 	  <title>Letter Lights</title>
    </head>
    <body>
@@ -63,5 +66,14 @@
 			<button id="Backspace" class="unknown" onclick="clickButton(this.id)">Backspace</button>
 		</div>
 	  </div>
+	<button id="settingsButton">Settings</button>
+	<div id="settings" onclick="toggleSettings()">
+		<div id="settingsContainer">
+			<p>Add custom words, seperated by spaces. Words below or above 5 letters will be ignored.</p>
+			<textarea id="customWords" autocomplete="off"></textarea> <br></br>
+			<button id="submitWords" class="uiButton">Save</button>
+		</div>
+		<div id="outside"></div>
+	</div>
    </body>
 </html>
