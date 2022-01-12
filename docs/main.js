@@ -3,6 +3,7 @@ import {words} from './wordlist.js'
 var c = 0; //column number
 var r = document.getElementById("board").getAttribute("rows"); //row number
 var rCount = 0;
+var getKeys = true;
 let currentWord = "";
 let correctWord = words[Math.round(Math.random()*words.length)];
 
@@ -17,52 +18,65 @@ window.clickButton = clickButton;
 function clickButton(clickChar) {
 	var clickButton = clickChar;
 	var row = document.getElementById('row' + rCount);
-	if (c < 0) {
-		c = 0;
-	}
-	if (clickButton == "Backspace") {
-		c--;
-		row.getElementsByClassName(c)[0].innerHTML = "/";
-		row.getElementsByClassName(c)[0].classList.replace("filled", "unknown");
-		currentWord = currentWord.slice(0, -1);
-	}
-	else if (clickButton == "Enter" && c == 5) {
-		var correctChar = 0;
-		for (let i = 0; i <= 4; i++) {
-			if (currentWord.slice(i, i+1) === correctWord.slice(i, i+1)) {
-				row.getElementsByClassName(i)[0].classList.replace("filled", "correct");
-				document.getElementById(correctWord.slice(i, i+1)).className = "correct";
-				correctChar++;
+	if (getKeys == true) {
+		if (c < 0) {
+			c = 0;
+		}
+		if (clickButton == "Backspace") {
+			c--;
+			row.getElementsByClassName(c)[0].innerHTML = "/";
+			row.getElementsByClassName(c)[0].classList.replace("filled", "unknown");
+			currentWord = currentWord.slice(0, -1);
+		}
+		else if (clickButton == "Enter" && c == 5) {
+			var correctChar = 0;
+			for (let i = 0; i <= 4; i++) {
+				if (currentWord.slice(i, i+1) === correctWord.slice(i, i+1)) {
+					row.getElementsByClassName(i)[0].classList.replace("filled", "correct");
+					document.getElementById(correctWord.slice(i, i+1)).className = "correct";
+					correctChar++;
+				}
+				else if (correctWord.search(currentWord.slice(i, i+1)) != -1) {
+					row.getElementsByClassName(i)[0].classList.replace("filled", "in");
+					document.getElementById(currentWord.slice(i, i+1)).className = "in";
+				}
+				else {
+					row.getElementsByClassName(i)[0].classList.replace("filled", "none");
+					document.getElementById(currentWord.slice(i, i+1)).className = "none";
+				}
 			}
-			else if (correctWord.search(currentWord.slice(i, i+1)) != -1) {
-				row.getElementsByClassName(i)[0].classList.replace("filled", "in");
-				document.getElementById(currentWord.slice(i, i+1)).className = "in";
+			if (correctChar == 5) {
+				alert("Correct! The word was " + correctWord + ".");
+				getKeys = false;
 			}
 			else {
-				row.getElementsByClassName(i)[0].classList.replace("filled", "none");
-				document.getElementById(currentWord.slice(i, i+1)).className = "none";
+				c = 0;
+				rCount++;
+				currentWord = "";	
+				if (rCount > r - 1) {
+					alert("Too bad! The word was " + correctWord + ".");
+				}
 			}
 		}
-		if (correctChar == 5) {
-			alert("Correct! The word was " + correctWord + ".");
-		}
-		else {
-			c = 0;
-			rCount++;
-			currentWord = "";	
-			if (rCount > r - 1) {
-				alert("Too bad! The word was " + correctWord + ".");
-			}
-		}
-	}
-	else if (clickButton != "Enter"){
-		row.getElementsByClassName(c)[0].innerHTML = clickChar.toUpperCase();
-		row.getElementsByClassName(c)[0].classList.replace("unknown", "filled");
-		currentWord += clickButton;
-		c++;
+		else if (clickButton != "Enter"){
+			row.getElementsByClassName(c)[0].innerHTML = clickChar.toUpperCase();
+			row.getElementsByClassName(c)[0].classList.replace("unknown", "filled");
+			currentWord += clickButton;
+			c++;
+		}	
 	}
 }
 
 window.onkeydown = function(e) {
 	document.getElementById(e.key).click();
 };
+
+document.getElementById("settingsButton").addEventListener("click", function() {
+	document.getElementById("settings").style.display = "block";
+	getKeys = false;
+});
+
+document.getElementById("outside").addEventListener("click", function() {
+	document.getElementById("settings").style.display = "none";
+	getKeys = true;
+});
