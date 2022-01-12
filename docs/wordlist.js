@@ -82,3 +82,21 @@ export let words = [
 'short',
 'hands'
 ];
+
+//write cookies
+document.getElementById("submitWords").addEventListener("click", function() {
+	let cookieValue = "customWords=" + document.getElementById("customWords").value;
+	document.cookie = cookieValue;
+});
+
+function readCookie() {
+	let newWords = document.cookie.split("=").join(",").split(" ").join(",").split(",");
+	for (let i = 0; i < newWords.length; i++) {
+		if (newWords[i].length == 5) {
+			words.push(newWords[i]);
+			document.getElementById("customWords").value += newWords[i] + " ";
+		}
+	}
+}
+
+window.onload = readCookie;
