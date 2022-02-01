@@ -1,25 +1,22 @@
 <!DOCTYPE html>
 <html>
    <head>
-	<link rel="icon" type="image/x-icon" href="icons/favicon.ico">
-      	<script langauage="javascript" type="module" src="main.js" defer></script>
-	<script langauage="javascript" type="module" src="wordlist.js" defer></script>
-	<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
-	<link rel="stylesheet" type="text/css" href="main.css">
-	<link rel="manifest" href="icons/site.webmanifest">
-	<meta name="viewport" content="width=device-width initial-scale=1, maximum-scale=5.0, minimum-scale=0.7">
-	<meta charset="utf-8">
-	<meta name="theme-color" content="#fff">
-	<meta name="author" content="Yacoub Kahkajian">
-	<meta name="description" content="A fun little word game based on Wordle. Infinitely replayable with custom words.">
-	<title>Letter Lights</title>
+      <link rel="icon" type="image/x-icon" href="icons/favicon.ico">
+      <script langauage="javascript" type="module" src="main.js" defer></script>
+	  <script langauage="javascript" type="module" src="wordlist.js" defer></script>
+	  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+	  <link rel="stylesheet" type="text/css" href="main.css">
+	  <link rel="manifest" href="icons/site.webmanifest">
+	  <meta name="viewport" content="width=device-width initial-scale=1, maximum-scale=5.0, minimum-scale=0.7, user-scalable=no">
+	  <meta charset="utf-8">
+	  <meta name="theme-color" content="#fff">
+	  <meta name="author" content="Yacoub Kahkajian">
+	  <meta name="description" content="A fun little word game based on Wordle. Infinitely replayable with custom words.">
+	  <title>Letter Lights</title>
    </head>
    <body>
 	  <div id="info"> 
 	  <h1>Letter Lights</h1>
-	  <p>a fun little word game based on <a href="https://powerlanguage.co.uk/wordle/">wordle.</a>
-	  <br>made by yacoub kahkajian with vanilla js.
-	  </p>
 	  </div>
       <div id="board" rows=5>
 		<div class="row" id="row0">
@@ -30,6 +27,7 @@
 			<div class="unknown 4">/</div>
 		</div>
 	  </div>
+	  <div id="result"><p id="resultText"></p></div>
 	  <div id="bank">
 		<div id="topRow">
 			<button id="q" class="unknown" onclick="clickButton(this.id)">q</button>
@@ -68,12 +66,16 @@
 			<button id="Backspace" class="unknown" onclick="clickButton(this.id)">Backspace</button>
 		</div>
 	  </div>
-	<button id="settingsButton">Settings</button>
+	<button id="settingsButton">⚙️</button>
 	<div id="settings" onclick="toggleSettings()">
 		<div id="settingsContainer">
 			<p>Add custom words, seperated by spaces. Words below or above 5 letters will be ignored.</p>
 			<textarea id="customWords" autocomplete="off"></textarea> <br></br>
+			<p></p>
+			<label for="darkModeToggle">Dark mode</label>
+			<input type="checkbox" id="darkModeToggle" name="darkModeToggle">
 			<button id="submitWords" class="uiButton">Save</button>
+			<p id="credits">a fun little word game based on <a href="https://powerlanguage.co.uk/wordle/">wordle.</a> made by yacoub kahkajian with vanilla js. </p>
 		</div>
 		<div id="outside"></div>
 	</div>
