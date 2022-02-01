@@ -6,12 +6,12 @@ button {
 	border: none;
     margin-left: 3px;
     margin-top: 3px;
+	font-family: sans-serif;
 }
 
 #info {
 	display:flex;
 	flex-wrap: wrap;
-	justify-content: center;
 	align-items: center;
 	column-gap: 10px;
 }
@@ -34,14 +34,12 @@ button {
 	justify-content: center;
 }
 
-#settingsButton {
-  position: fixed; 
-  bottom: 0; 
-  left: 0; 
-  z-index:999;
-  padding: 20px;
+#settingsButton, #reset {
+  display: flex;
+  padding: 10px;
+  cursor: pointer;
   background-color: transparent;
-  font-size: 50px;
+  font-size: 30px;
 }
 
 #settings {
