@@ -1,5 +1,26 @@
 import {words} from './wordlist.js'
 
+const checkbox = document.querySelector("input[name=darkModeToggle]");
+const prefersDarkScheme = window.matchMedia("(prefers-color-scheme: dark)");
+if (prefersDarkScheme.matches) {
+	checkbox.checked == true;
+}
+
+function checkboxEdit() {  
+  var themeColor = document.querySelector("meta[name=theme-color]");
+  if (checkbox.checked) {
+    document.body.classList.add("dark-theme");
+	themeColor.setAttribute("content", "#121212");
+  } 
+  else {
+    document.body.classList.remove("dark-theme");
+	themeColor.setAttribute("content", "#fff");
+  }
+}
+
+checkbox.addEventListener('change', checkboxEdit);
+window.onload = checkboxEdit;
+
 var c = 0; //column number
 var r = document.getElementById("board").getAttribute("rows"); //row number
 var rCount = 0;
@@ -67,6 +88,27 @@ function clickButton(clickChar) {
 	}
 }
 
+document.getElementById("reset").addEventListener("click", function() {
+	correctWord = words[Math.round(Math.random()*words.length)];
+	currentWord = "";
+	c = 0;
+	rCount = 0;
+	for (let i = 0; i <= 4; i++) {
+		for (let j = 0; j <= 4; j++) {
+			document.getElementsByClassName(i)[j].innerHTML = "/";
+			document.getElementsByClassName(i)[j].classList.remove("none", "filled", "in", "correct", "unknown");
+			document.getElementsByClassName(i)[j].classList.add("unknown");
+		}
+	}
+	const resetBank = document.querySelectorAll("div.topRow > button, div.midRow > button, div.endRow > button");
+	resetBank.forEach(function(item) {
+		item.classList.remove("none", "filled", "in", "correct", "unknown");
+		item.classList.add("unknown");
+	});
+	document.getElementById("resultText").innerHTML = "";
+	this.blur();
+});
+
 window.onkeydown = function(e) {
 	document.getElementById(e.key).click();
 };
@@ -79,22 +121,4 @@ document.getElementById("settingsButton").addEventListener("click", function() {
 document.getElementById("outside").addEventListener("click", function() {
 	document.getElementById("settings").style.display = "none";
 	getKeys = true;
-});
-
-const checkbox = document.querySelector("input[name=darkModeToggle]");
-const prefersDarkScheme = window.matchMedia("(prefers-color-scheme: dark)");
-if (prefersDarkScheme.matches) {
-	checkbox.checked == true;
-}
-
-checkbox.addEventListener('change', function() {  
-  var themeColor = document.querySelector("meta[name=theme-color]");
-  if (this.checked) {
-    document.body.classList.toggle("dark-theme");
-	themeColor.setAttribute("content", "#121212");
-  } 
-  else {
-    document.body.classList.toggle("dark-theme");
-	themeColor.setAttribute("content", "#fff");
-  }
 });
