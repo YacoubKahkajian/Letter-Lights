@@ -2,6 +2,12 @@ body {
 	font-family: sans-serif;
 }
 
+button {
+	border: none;
+    margin-left: 3px;
+    margin-top: 3px;
+}
+
 #info {
 	display:flex;
 	flex-wrap: wrap;
@@ -22,11 +28,20 @@ body {
 	justify-content: center;
 }
 
+#resultText {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+
 #settingsButton {
   position: fixed; 
   bottom: 0; 
   left: 0; 
   z-index:999;
+  padding: 20px;
+  background-color: transparent;
+  font-size: 50px;
 }
 
 #settings {
@@ -47,10 +62,10 @@ body {
 	width: 30%;
 	margin: auto;
 	padding: 20px;
-	background-color: white;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
+	background-color: white;
 	align-items: left;
 	border-radius: 30px;
 }
@@ -66,6 +81,10 @@ body {
 		height: 12vw;
 		width: 9vw;
 		font-size: 20px;
+	}
+	
+	#settingsContainer {
+		width: 60vw;
 	}
 }
 
@@ -88,6 +107,15 @@ body {
 	font-size: 20px;
 	width: 60px;
 	border-radius: 30px;
+}
+
+#customWords {
+	border: none;
+	background-color: #f1f1f1;
+}
+
+#credits {
+	color: gray;
 }
 
 .row {
@@ -145,4 +173,41 @@ body {
 
 .in {
 	background-color: #fbc847; /* yellow */
+}
+
+/* Manual dark mode */
+body.dark-theme {
+	background: #121212;
+	color: white;
+}
+
+body.dark-theme button {
+	color: white;
+}
+
+body.dark-theme #settingsContainer {
+	background-color: #383838;
+}
+
+body.dark-theme .unknown {
+	background-color: #383838;
+}
+body.dark-theme .filled {
+	background-color: #383838;
+}
+body.dark-theme .none {
+	background-color: #a6142f; /* red */
+}
+body.dark-theme .correct {
+	background-color: #59873d; /* green */
+}
+body.dark-theme .in {
+	background-color: #c29b38; /* yellow */
+}
+body.dark-theme .uiButton {
+	background-color: #5e5e5e;	
+}
+body.dark-theme #customWords {
+	background-color: #5e5e5e;
+	color: white;
 }
