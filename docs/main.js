@@ -46,7 +46,7 @@ function clickButton(clickChar) {
 				}
 			}
 			if (correctChar == 5) {
-				alert("Correct! The word was " + correctWord + ".");
+				document.getElementById("resultText").innerHTML = "Correct! The word was&nbsp;<b>" + correctWord + ".</b>";
 				getKeys = false;
 			}
 			else {
@@ -54,7 +54,7 @@ function clickButton(clickChar) {
 				rCount++;
 				currentWord = "";	
 				if (rCount > r - 1) {
-					alert("Too bad! The word was " + correctWord + ".");
+					document.getElementById("resultText").innerHTML = "Too bad! The word was&nbsp;<b>" + correctWord + ".</b>";
 				}
 			}
 		}
@@ -79,4 +79,22 @@ document.getElementById("settingsButton").addEventListener("click", function() {
 document.getElementById("outside").addEventListener("click", function() {
 	document.getElementById("settings").style.display = "none";
 	getKeys = true;
+});
+
+const checkbox = document.querySelector("input[name=darkModeToggle]");
+const prefersDarkScheme = window.matchMedia("(prefers-color-scheme: dark)");
+if (prefersDarkScheme.matches) {
+	checkbox.checked == true;
+}
+
+checkbox.addEventListener('change', function() {  
+  var themeColor = document.querySelector("meta[name=theme-color]");
+  if (this.checked) {
+    document.body.classList.toggle("dark-theme");
+	themeColor.setAttribute("content", "#121212");
+  } 
+  else {
+    document.body.classList.toggle("dark-theme");
+	themeColor.setAttribute("content", "#fff");
+  }
 });
