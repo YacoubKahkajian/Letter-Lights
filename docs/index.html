@@ -15,10 +15,12 @@
 	  <title>Letter Lights</title>
    </head>
    <body>
-	  <div id="info"> 
-	  <h1>Letter Lights</h1>
-	  </div>
       <div id="board" rows=5>
+	  	<div id="info"> 
+		<button id="reset" class="unknown">🔄</button>
+		  <h1 id="gameTitle">Letter Lights</h1>
+		  <button id="settingsButton">⚙️</button>
+		</div>
 		<div class="row" id="row0">
 			<div class="unknown 0">/</div>
 			<div class="unknown 1">/</div>
@@ -28,8 +30,8 @@
 		</div>
 	  </div>
 	  <div id="result"><p id="resultText"></p></div>
-	  <div id="bank">
-		<div id="topRow">
+	  <div id="bank" class="bank">
+		<div id="topRow" class="topRow">
 			<button id="q" class="unknown" onclick="clickButton(this.id)">q</button>
 			<button id="w" class="unknown" onclick="clickButton(this.id)">w</button>
 			<button id="e" class="unknown" onclick="clickButton(this.id)">e</button>
@@ -41,7 +43,7 @@
 			<button id="o" class="unknown" onclick="clickButton(this.id)">o</button>
 			<button id="p" class="unknown" onclick="clickButton(this.id)">p</button>
 		</div>
-		<div id="midRow">
+		<div id="midRow" class="midRow">
 			<button id="a" class="unknown" onclick="clickButton(this.id)">a</button>
 			<button id="s" class="unknown" onclick="clickButton(this.id)">s</button>
 			<button id="d" class="unknown" onclick="clickButton(this.id)">d</button>
@@ -52,7 +54,7 @@
 			<button id="k" class="unknown" onclick="clickButton(this.id)">k</button>
 			<button id="l" class="unknown" onclick="clickButton(this.id)">l</button>
 		</div>
-		<div id="endRow">
+		<div id="endRow" class="endRow">
 			<button id="z" class="unknown" onclick="clickButton(this.id)">z</button>
 			<button id="x" class="unknown" onclick="clickButton(this.id)">x</button>
 			<button id="c" class="unknown" onclick="clickButton(this.id)">c</button>
@@ -66,14 +68,13 @@
 			<button id="Backspace" class="unknown" onclick="clickButton(this.id)">Backspace</button>
 		</div>
 	  </div>
-	<button id="settingsButton">⚙️</button>
 	<div id="settings" onclick="toggleSettings()">
 		<div id="settingsContainer">
 			<p>Add custom words, seperated by spaces. Words below or above 5 letters will be ignored.</p>
 			<textarea id="customWords" autocomplete="off"></textarea> <br></br>
 			<p></p>
 			<label for="darkModeToggle">Dark mode</label>
-			<input type="checkbox" id="darkModeToggle" name="darkModeToggle">
+			<input type="checkbox" id="darkModeToggle" name="darkModeToggle" autocomplete">
 			<button id="submitWords" class="uiButton">Save</button>
 			<p id="credits">a fun little word game based on <a href="https://powerlanguage.co.uk/wordle/">wordle.</a> made by yacoub kahkajian with vanilla js. </p>
 		</div>
